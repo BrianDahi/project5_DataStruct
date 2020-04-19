@@ -49,7 +49,7 @@ int main() {
     //}
     myInputFile.close();
     
-    multimap<int,string> sortMap;
+    multimap<int,string,greater<int>> sortMap;
     multimap<int, string> :: iterator it2;
     for(it = m.begin(); it != m.end();++it){
         sortMap.insert(make_pair(it->second, it->first));
@@ -60,7 +60,24 @@ int main() {
            // and the exit case will be m.end()
           cout  <<"Key: " <<it2->second<< " Value: " << it2->first <<endl;
        }
-   
+    cout<<endl;
+    cout<<"********"<<endl;
+  
+    string strArray[sortMap.size()];
+    int i = 0;
+     for(it2 = sortMap.begin(); it2 != sortMap.end(); ++it2){
+         strArray[i] = it2->second;
+         ++i;
+     }
+ 
+    /* Now we need to open the file again read and search and then print the position it is in*/
+    myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input1.txt");
+    
+    
+  
+    
+    
+    myInputFile.close();
     return 0;
 }
 
