@@ -8,42 +8,25 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
     
     map<string, int> m;
     map<string,int>::iterator it;
-    char fileName[50];
-  //  cin.getline(fileName, 50);
-    fstream myInputFile ;
-   // myInputFile.open(fileName);
     
-   // myInputFile.open("input1.txt"); //This is what gradescope requires
+    ifstream myInputFile ;
+    
+   myInputFile.open(argv[1]); //This is what gradescope requires
    // myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input1.txt");
     
-     //  myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input1Real.txt");
+      // myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input1Real.txt");
     
       // myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input2.txt");
     
-        myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input3.txt");
+     //   myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input3.txt");
     
     string token;
     char aChar;
-    
-  /*  while(!myInputFile.eof()){
-        myInputFile.get(aChar);
-         if (!myInputFile.eof()){
-        token.clear();
-        while((!myInputFile.eof()) && ((aChar != ' ') && (aChar != '\n'))){
-            token += aChar;//Here we are puting aChar into a string
-            myInputFile.get(aChar);// we get the next char
-        }
-         m[token]++;
-        }
-    }*/
-    
-    
-    
-    
+
     while (!myInputFile.eof()){//Why the file is not end of file
         do{
             myInputFile.get(aChar);//get a char
@@ -81,12 +64,10 @@ int main() {
     
     for (it2 =  sortMap.begin(); it2 !=  sortMap.end(); ++it2) {
         //the m.begin() will start at the front of the map and the exit case will be m.end()
-               
-          cout  <<it2->second <<" ";
+            cout  <<it2->second <<" ";
     }
     cout<<endl;
     
-  
     string strArray[sortMap.size()];
     int i = 0;
     for(it2 = sortMap.begin(); it2 != sortMap.end(); ++it2){
@@ -95,37 +76,19 @@ int main() {
     }
   
     /* Now we need to open the file again read and search and then print the position it is in*/
-    // myInputFile.open("input1.txt"); //This is what gradescope requires
-   // myInputFile.open(fileName);
-      // myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input1.txt");
+     myInputFile.open(argv[1]);//for gradescope
     
-         //  myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input1Real.txt");
+ //   myInputFile.open(file);
+    
+    //  myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input1.txt");
+    
+        //   myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input1Real.txt");
     
          // myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input2.txt");
     
-         myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input3.txt");
+       //  myInputFile.open("/Users/briandahi/Documents/ou/Data Structures/Project5/Project5/input3.txt");
     i = 0;
-    
-   /* while(!myInputFile.eof()){
-        myInputFile.get(aChar);
-         if (!myInputFile.eof()){
-        token.clear();
-        while((!myInputFile.eof()) && ((aChar != ' ') && (aChar != '\n'))){
-            token += aChar;//Here we are puting aChar into a string
-            myInputFile.get(aChar);// we get the next char
-        }
-         m[token]++;
-        
-        for(int i = 0; i < sortMap.size();++i){
-                          if(token == strArray[i]){
-                              cout<<i+1<<" ";
-                          }
-               }
-         }
-    }*/
-    
-    
-    
+
     
     while (!myInputFile.eof()){//Why the file is not end of file
               do{
@@ -145,11 +108,11 @@ int main() {
                       
                       myInputFile.get(aChar);// we get the next char
                       
-                  }
+                }
               for(int i = 0; i < sortMap.size();++i){
-                         if(token == strArray[i]){
-                             cout<<i+1<<" ";
-                         }
+                  if(token == strArray[i]){
+                      cout<<i+1<<" ";
+                  }
               }
           
            }
